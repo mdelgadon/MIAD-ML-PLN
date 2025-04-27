@@ -12,7 +12,7 @@ model = joblib.load('ModeloEntrenado.pkl')
 # Crear app
 app = Flask(__name__)
 api = Api(app, version='1.0', title='API Spotify Prediction',
-          description='Predice el género musical basado en características de una pista')
+          description='Predice la popularidadd de la canción  basado en características de una pista')
 
 # Definir parser de entrada
 parser = reqparse.RequestParser()
@@ -23,7 +23,7 @@ parser.add_argument('valence', type=float, required=True, help='Valence [0.0-1.0
 parser.add_argument('liveness', type=float, required=True, help='Liveness [0.0-1.0]')
 parser.add_argument('speechiness', type=float, required=True, help='Speechiness [0.0-1.0]')
 
-ns = api.namespace('predict', description='Predicción de género musical')
+ns = api.namespace('predict', description='Predicción de popularidad musical')
 
 @ns.route('/')
 class PredictGenre(Resource):
@@ -42,7 +42,7 @@ class PredictGenre(Resource):
 
         prediction = model.predict(input_data)
 
-        return {'Predicted Genre': prediction[0]}, 200
+        return {'Predicted popularidad': prediction[0]}, 200
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=False, host='0.0.0.0', port=5000)
