@@ -14,7 +14,7 @@ data = pd.read_csv('https://raw.githubusercontent.com/davidzarruk/MIAD_ML_NLP_20
 # selección de variables
 columnas = ['danceability', 'energy', 'tempo', 'valence', 'liveness', 'speechiness']
 X = data[columnas]
-y = data['track_genre']
+y = data['popularity']
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
