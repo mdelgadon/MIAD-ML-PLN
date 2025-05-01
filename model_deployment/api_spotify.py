@@ -12,7 +12,7 @@ model = joblib.load('ModeloEntrenado.pkl')
 # Crear app
 app = Flask(__name__)
 api = Api(app, version='1.0', title='API Spotify Prediction',
-          description='Predice la popularidadd de la canción  basado en características de una pista')
+          description='Predice la popularidad de la canción  basado en características de una pista')
 
 # Definir parser de entrada
 parser = reqparse.RequestParser()

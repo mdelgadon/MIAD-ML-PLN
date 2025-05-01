@@ -25,12 +25,13 @@ clf = DecisionTreeRegressor(max_depth=5, random_state=42)
 
 # Entrenar el modelo
 clf.fit(X_train, y_train)
+# Guardar el modelo
+joblib.dump(clf, 'ModeloEntrenado.pkl', compress=3)
+print("Modelo guardado como 'ModeloEntrenado.pkl'")
 
 # Evaluar el modelo
 #y_pred = clf.predict(X_test)
 #accuracy = accuracy_score(y_test, y_pred)
 #print(f"Accuracy en datos de prueba: {accuracy:.2f}")
 
-# Guardar el modelo
-joblib.dump(clf, 'ModeloEntrenado.pkl', compress=3)
-print("Modelo guardado como 'ModeloEntrenado.pkl'")
+
